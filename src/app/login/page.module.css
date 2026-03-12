@@ -1,0 +1,82 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  padding: 20px;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 440px;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 50px 40px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  color: var(--foreground);
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 13px;
+  color: var(--foreground);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.error {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  background: rgba(211, 47, 47, 0.1);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.otpContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.otpInput {
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 12px;
+  font-weight: 700;
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

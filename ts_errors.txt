@@ -1,0 +1,154 @@
+.next/dev/types/validator.ts(117,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/admin/files/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/admin/files/[id]">'.
+  Types of property 'DELETE' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(126,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/admin/users/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/admin/users/[id]">'.
+  Types of property 'DELETE' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(171,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/drop/[token]/record/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/drop/[token]/record">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; file: { name: string; size: number; id: string; r2_key: string; ... 8 more ...; updatedAt: Date; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/dev/types/validator.ts(180,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/drop/[token]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/drop/[token]">'.
+  Types of property 'GET' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ dropLink: { user: { name: string; avatarUrl: string | null; id: string; }; } & { ...; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/dev/types/validator.ts(189,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/drop/[token]/upload/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/drop/[token]/upload">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ signedUrl: string; key: string; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/dev/types/validator.ts(198,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/droplinks/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/droplinks/[id]">'.
+  Types of property 'PATCH' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; dropLink: { userId: string; name: string; id: string; folderId: string | null; createdAt: Date; token: string; active: boolean; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(216,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/files/[id]/download/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/files/[id]/download">'.
+  Types of property 'GET' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<unknown>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(225,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/files/[id]/public/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/files/[id]/public">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(234,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/files/[id]/star/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/files/[id]/star">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; file: { name: string; size: number; id: string; r2_key: string; ... 8 more ...; updatedAt: Date; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(270,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/public/[token]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/public/[token]">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; downloadUrl: string; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/dev/types/validator.ts(288,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/shares/[id]/star/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/shares/[id]/star">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; share: { expiresAt: Date | null; id: string; isStarred: boolean; createdAt: Date; fileId: string; receiverId: string; senderId: string; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(117,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/admin/files/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/admin/files/[id]">'.
+  Types of property 'DELETE' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(126,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/admin/users/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/admin/users/[id]">'.
+  Types of property 'DELETE' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(171,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/drop/[token]/record/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/drop/[token]/record">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; file: { name: string; size: number; id: string; r2_key: string; ... 8 more ...; updatedAt: Date; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/types/validator.ts(180,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/drop/[token]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/drop/[token]">'.
+  Types of property 'GET' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ dropLink: { user: { name: string; avatarUrl: string | null; id: string; }; } & { ...; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/types/validator.ts(189,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/drop/[token]/upload/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/drop/[token]/upload">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ signedUrl: string; key: string; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/types/validator.ts(198,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/droplinks/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/droplinks/[id]">'.
+  Types of property 'PATCH' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; dropLink: { userId: string; name: string; id: string; folderId: string | null; createdAt: Date; token: string; active: boolean; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(216,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/files/[id]/download/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/files/[id]/download">'.
+  Types of property 'GET' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<unknown>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(225,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/files/[id]/public/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/files/[id]/public">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(234,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/files/[id]/star/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/files/[id]/star">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; file: { name: string; size: number; id: string; r2_key: string; ... 8 more ...; updatedAt: Date; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(270,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/public/[token]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/public/[token]">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { token: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; downloadUrl: string; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ token: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ token: string; }>; }' is not assignable to type '{ params: { token: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'token' is missing in type 'Promise<{ token: string; }>' but required in type '{ token: string; }'.
+.next/types/validator.ts(288,31): error TS2344: Type 'typeof import("C:/WebProjects/SLIIT FIle Share/src/app/api/shares/[id]/star/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/shares/[id]/star">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<{ error: string; }> | NextResponse<{ success: boolean; share: { expiresAt: Date | null; id: string; isStarred: boolean; createdAt: Date; fileId: string; receiverId: string; senderId: string; }; }>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.

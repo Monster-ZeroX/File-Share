@@ -1,0 +1,59 @@
+﻿
+> temp-app@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local, .env
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 4.6s
+  Running TypeScript ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/21) ...
+  Generating static pages using 15 workers (5/21) 
+  Generating static pages using 15 workers (10/21) 
+  Generating static pages using 15 workers (15/21) 
+Γ£ô Generating static pages using 15 workers (21/21) in 504.6ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ ╞Æ /admin
+Γö£ ╞Æ /api/admin/files/[id]
+Γö£ ╞Æ /api/admin/users/[id]
+Γö£ ╞Æ /api/auth/login
+Γö£ ╞Æ /api/auth/logout
+Γö£ ╞Æ /api/auth/send-otp
+Γö£ ╞Æ /api/auth/verify-otp
+Γö£ ╞Æ /api/drop/[token]
+Γö£ ╞Æ /api/drop/[token]/record
+Γö£ ╞Æ /api/drop/[token]/upload
+Γö£ ╞Æ /api/droplinks
+Γö£ ╞Æ /api/droplinks/[id]
+Γö£ ╞Æ /api/files
+Γö£ ╞Æ /api/files/[id]/download
+Γö£ ╞Æ /api/files/[id]/public
+Γö£ ╞Æ /api/files/[id]/star
+Γö£ ╞Æ /api/files/bulk
+Γö£ ╞Æ /api/folders
+Γö£ ╞Æ /api/public/[token]
+Γö£ ╞Æ /api/shares
+Γö£ ╞Æ /api/shares/[id]
+Γö£ ╞Æ /api/shares/[id]/star
+Γö£ ╞Æ /api/shares/received
+Γö£ ╞Æ /api/upload
+Γö£ ╞Æ /api/users/profile
+Γö£ ╞Æ /api/users/search
+Γö£ ╞Æ /dashboard
+Γö£ ╞Æ /dashboard/profile
+Γö£ ╞Æ /drop/[token]
+Γö£ Γùï /login
+Γöö ╞Æ /public/[token]
+
+
+╞Æ Proxy (Middleware)
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

@@ -1,0 +1,101 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  sliit_id      String    @unique
+  password      String?
+  avatarUrl     String?
+  verified      Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  uploadedFiles File[]    @relation("Uploader")
+  sentShares    Share[]   @relation("Sender")
+  receivedShares Share[]  @relation("Receiver")
+  otps          OTP[]
+  folders       Folder[]
+  dropLinks     DropLink[] @relation("UserDropLinks")
+}
+
+model Folder {
+  id        String   @id @default(cuid())
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  files     File[]
+  dropLinks DropLink[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, name])
+}
+
+model DropLink {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  name      String
+  userId    String
+  user      User     @relation("UserDropLinks", fields: [userId], references: [id], onDelete: Cascade)
+  folderId  String?
+  folder    Folder?  @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model OTP {
+  id            String    @id @default(cuid())
+  email         String
+  code          String
+  expiresAt     DateTime
+  createdAt     DateTime  @default(now())
+  
+  user          User?     @relation(fields: [email], references: [email], onDelete: Cascade)
+
+  @@index([email])
+}
+
+model File {
+  id            String    @id @default(cuid())
+  name          String
+  r2_key        String    @unique
+  size          Int       // Size in bytes
+  mime_type     String
+  uploaderId    String
+  folderId      String?
+  downloads     Int       @default(0)
+  publicToken   String?   @unique
+  publicPassword String?
+  isStarred     Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  uploader      User      @relation("Uploader", fields: [uploaderId], references: [id], onDelete: Cascade)
+  folder        Folder?   @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  shares        Share[]
+}
+
+model Share {
+  id            String    @id @default(cuid())
+  fileId        String
+  receiverId    String
+  senderId      String
+  expiresAt     DateTime? // Recommended feature: optional expiration
+  isStarred     Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+
+  file          File      @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  receiver      User      @relation("Receiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  sender        User      @relation("Sender", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@unique([fileId, receiverId])
+}
