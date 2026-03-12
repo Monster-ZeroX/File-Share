@@ -31,7 +31,7 @@ export default function Navbar({ user }: { user: any }) {
   };
 
   return (
-    <nav style={{
+    <nav className="nav-container" style={{
       display: 'flex', 
       justifyContent: 'space-between', 
       alignItems: 'center', 
@@ -43,27 +43,27 @@ export default function Navbar({ user }: { user: any }) {
       top: 0,
       zIndex: 100
     }}>
-      <Link href="/dashboard" style={{ fontWeight: 'bold', fontSize: '20px', letterSpacing: '-0.5px' }}>
+      <Link href="/dashboard" className="nav-title" style={{ fontWeight: 'bold', fontSize: '20px', letterSpacing: '-0.5px' }}>
         <span style={{ color: 'var(--primary)' }}>SLIIT</span> File Share
       </Link>
       
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+      <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
         <button onClick={toggleTheme} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--foreground)', display: 'flex' }}>
           {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
         </button>
 
         <Link href="/dashboard/profile" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', textDecoration: 'none' }}>
           {user?.avatarUrl ? (
-            <img src={`https://sliitr2.kaveeshainduwara.lk/${user.avatarUrl}`} alt="Avatar" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} />
+            <img src={`https://sliitr2.kaveeshainduwara.lk/${user.avatarUrl}`} alt="Avatar" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
           ) : (
-            <UserIcon size={18} />
+            <UserIcon size={18} style={{ flexShrink: 0 }} />
           )}
-          <span style={{ fontSize: '14px', fontWeight: 500 }}>{user?.name || 'Profile'}</span>
+          <span className="hide-on-mobile" style={{ fontSize: '14px', fontWeight: 500, whiteSpace: 'nowrap', maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis' }}>{user?.name || 'Profile'}</span>
         </Link>
 
         {user?.email === 'kaveeshainduwara.lk@gmail.com' && (
-          <Link href="/admin" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--primary)', padding: '5px 10px', background: 'var(--glass-border)', borderRadius: '6px' }}>
-            Admin Panel
+          <Link href="/admin" className="nav-admin-btn" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--primary)', padding: '5px 10px', background: 'var(--glass-border)', borderRadius: '6px', whiteSpace: 'nowrap' }}>
+            Admin <span className="hide-on-mobile">Panel</span>
           </Link>
         )}
 
@@ -72,7 +72,7 @@ export default function Navbar({ user }: { user: any }) {
           style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--error)', display: 'flex', alignItems: 'center', gap: '5px' }}
         >
           <LogOut size={18} />
-          <span style={{ fontSize: '14px', fontWeight: 500 }}>Logout</span>
+          <span className="hide-on-mobile" style={{ fontSize: '14px', fontWeight: 500 }}>Logout</span>
         </button>
       </div>
     </nav>
