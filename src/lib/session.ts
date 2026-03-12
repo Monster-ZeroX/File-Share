@@ -49,7 +49,38 @@ export async function createSession(userId: string, email: string, name: string,
   });
 }
 
-export async function verifySession() {
+export async function verifySession(request?: Request) {
+  // 1. Check for API Key first if request object is provided
+  if (request) {
+    const authHeader = request.headers.get('authorization');
+    if (authHeader?.startsWith('Bearer sliit_')) {
+      const token = authHeader.split(' ')[1];
+      const { PrismaClient } = require('@prisma/client');
+      // Use a local prisma instance if global isn't easily available here, or import it
+      // Actually we can just import prisma from '@/lib/prisma' but we need to resolve circular deps if any.
+      // Let's just import it at top level if it's there. Wait, prisma import is not at top level. Let's add it.
+      const prisma = require('@/lib/prisma').default;
+      
+      const apiKey = await prisma.apiKey.findUnique({
+        where: { key: token },
+        include: { user: true }
+      });
+
+      if (apiKey && apiKey.user) {
+        return { 
+          isAuth: true, 
+          userId: apiKey.user.id, 
+          email: apiKey.user.email, 
+          name: apiKey.user.name, 
+          sliit_id: apiKey.user.sliit_id, 
+          avatarUrl: apiKey.user.avatarUrl,
+          isApiKey: true
+        };
+      }
+    }
+  }
+
+  // 2. Fallback to cookies
   const cookieStore = await cookies();
   const cookie = cookieStore.get(SESSION_COOKIE_NAME)?.value;
   const session = await decrypt(cookie);

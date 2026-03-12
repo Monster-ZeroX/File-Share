@@ -48,7 +48,7 @@ export async function POST(req: Request) {
 // Fetch user's uploaded files (optional, for dashboard)
 export async function GET(req: Request) {
   try {
-    const session = await verifySession();
+    const session = await verifySession(req);
     if (!session?.userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }

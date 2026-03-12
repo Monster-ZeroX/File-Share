@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { User, Camera, Lock, CheckCircle2, AlertCircle } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { User, Camera, Lock, CheckCircle2, AlertCircle, Key, Trash2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function ProfilePage({ user }: { user: any }) {
@@ -17,7 +17,54 @@ export default function ProfilePage({ user }: { user: any }) {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   
+  // API Keys state
+  const [apiKeys, setApiKeys] = useState<any[]>([]);
+  const [newKeyName, setNewKeyName] = useState('');
+  const [generatedKey, setGeneratedKey] = useState<string | null>(null);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    fetch('/api/keys').then(r => r.json()).then(d => {
+      if (d.keys) setApiKeys(d.keys);
+    });
+  }, []);
+
+  const handleCreateApiKey = async () => {
+    if (!newKeyName.trim()) {
+      setError('Key name is required');
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch('/api/keys', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: newKeyName })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      
+      setApiKeys([data.apiKey, ...apiKeys]);
+      setGeneratedKey(data.apiKey.key); // Show the key ONCE
+      setNewKeyName('');
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRevokeApiKey = async (id: string) => {
+    if (!confirm('Are you sure you want to revoke this API key?')) return;
+    try {
+      const res = await fetch(`/api/keys/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Failed to revoke key');
+      setApiKeys(apiKeys.filter(k => k.id !== id));
+    } catch (err: any) {
+      setError(err.message);
+    }
+  };
 
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -188,6 +235,61 @@ export default function ProfilePage({ user }: { user: any }) {
           {loading ? 'Saving Changes...' : 'Save Profile Settings'}
         </button>
 
+      </div>
+
+      {/* API Keys Section */}
+      <h2 style={{ marginTop: '40px', marginBottom: '25px', fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <Key size={20}/> Developer API Keys
+      </h2>
+      <div className="glass-card" style={{ padding: '30px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+          Generate API keys to interact dynamically with the SLIIT File Share platform. 
+          <a href="/docs/api" target="_blank" style={{ color: 'var(--primary)', marginLeft: '10px', textDecoration: 'underline' }}>View API Documentation</a>
+        </p>
+
+        {generatedKey && (
+          <div style={{ background: 'rgba(0, 200, 83, 0.1)', border: '1px solid var(--success)', padding: '15px', borderRadius: '8px', marginBottom: '10px' }}>
+            <h4 style={{ color: 'var(--success)', margin: '0 0 10px 0', fontSize: '14px' }}>Key Created Successfully!</h4>
+            <p style={{ fontSize: '13px', margin: '0 0 10px 0' }}>Please copy this key now. You won't be able to see it again.</p>
+            <code style={{ display: 'block', background: 'var(--background)', padding: '10px', borderRadius: '6px', fontSize: '14px', wordBreak: 'break-all' }}>{generatedKey}</code>
+            <button onClick={() => setGeneratedKey(null)} className="btn-secondary" style={{ marginTop: '10px', padding: '6px 12px', fontSize: '12px' }}>I have copied it</button>
+          </div>
+        )}
+
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <input 
+            type="text" 
+            className="input-field" 
+            placeholder="New Key Name (e.g. My Script)"
+            value={newKeyName}
+            onChange={e => setNewKeyName(e.target.value)}
+            style={{ margin: 0, flex: 1 }}
+          />
+          <button onClick={handleCreateApiKey} disabled={loading || !newKeyName.trim()} className="btn-primary" style={{ padding: '10px 20px', whiteSpace: 'nowrap' }}>
+            Generate New Key
+          </button>
+        </div>
+
+        {apiKeys.length > 0 && (
+          <div style={{ marginTop: '15px' }}>
+            <h4 style={{ fontSize: '14px', marginBottom: '10px', color: 'var(--text-muted)' }}>Active Keys</h4>
+            {apiKeys.map(k => (
+              <div key={k.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', borderBottom: '1px solid var(--border)' }}>
+                <div>
+                  <div style={{ fontWeight: 500, fontSize: '14px' }}>{k.name}</div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '12px', fontFamily: 'monospace' }}>
+                    Created {new Date(k.createdAt).toLocaleDateString()}
+                  </div>
+                </div>
+                <button 
+                  onClick={() => handleRevokeApiKey(k.id)}
+                  style={{ background: 'transparent', color: 'var(--error)', border: 'none', cursor: 'pointer', padding: '5px' }}>
+                  <Trash2 size={16}/>
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

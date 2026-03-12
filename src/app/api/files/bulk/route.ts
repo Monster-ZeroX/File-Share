@@ -4,7 +4,7 @@ import { verifySession } from '@/lib/session';
 
 export async function DELETE(req: Request) {
   try {
-    const session = await verifySession();
+    const session = await verifySession(req);
     if (!session?.userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { fileIds } = await req.json();
