@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   
   // Define public routes
-  const isPublicRoute = path === '/login' || path === '/' || path.startsWith('/api/auth');
+  const isPublicRoute = path === '/login' || path === '/' || path.startsWith('/api/auth') || path.startsWith('/public/') || path.startsWith('/drop/');
 
   // Verify session safely via request.cookies instead of next/headers
   const cookie = request.cookies.get('sliit_share_session')?.value;
